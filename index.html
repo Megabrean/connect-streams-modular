@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Amazon Connect Streams — Laboratório</title>
+
+    <link rel="stylesheet" href="./styles.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/amazon-connect-streams/release/connect-streams-min.js"
+        defer>
+    </script>
+
+    <script
+        type="module"
+        src="./js/app.js">
+    </script>
+</head>
+
+<body>
+    <h1 class="page-title">
+        Amazon Connect Streams — Laboratório
+    </h1>
+
+    <main class="layout">
+        <section
+            class="ccp-column"
+            aria-labelledby="ccp-title">
+
+            <h2
+                id="ccp-title"
+                class="section-title">
+                CCP original
+            </h2>
+
+            <div id="container-div"></div>
+        </section>
+
+        <aside
+            class="custom-panel"
+            aria-labelledby="custom-panel-title">
+
+            <h2
+                id="custom-panel-title"
+                class="section-title">
+                Painel customizado
+            </h2>
+
+            <div class="field">
+                <label>Agente</label>
+
+                <div
+                    id="agent-name"
+                    class="field-value">
+                    Aguardando inicialização...
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Status atual</label>
+
+                <div class="field-value">
+                    <span
+                        id="agent-status"
+                        class="status-badge">
+                        Desconhecido
+                    </span>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="agent-state-select">
+                    Alterar status
+                </label>
+
+                <select
+                    id="agent-state-select"
+                    disabled>
+                    <option value="">
+                        Carregando status...
+                    </option>
+                </select>
+            </div>
+
+            <section
+                class="outbound-card"
+                aria-labelledby="outbound-title">
+
+                <h3 id="outbound-title">
+                    Nova chamada
+                </h3>
+
+                <button
+                    id="btn-open-dialer"
+                    class="outbound-open-button"
+                    type="button"
+                    disabled>
+                    Abrir discador
+                </button>
+
+                <div
+                    id="outbound-dialer"
+                    class="outbound-dialer"
+                    hidden>
+
+                    <div class="dialer-header">
+                        <strong>
+                            Digite o número
+                        </strong>
+
+                        <button
+                            id="btn-close-dialer"
+                            class="dialer-close-button"
+                            type="button"
+                            aria-label="Fechar discador">
+                            Voltar
+                        </button>
+                    </div>
+
+                    <div class="dialer-number-row">
+                        <input
+                            id="outbound-number"
+                            class="outbound-number"
+                            type="tel"
+                            inputmode="tel"
+                            autocomplete="off"
+                            placeholder="+55..."
+                            aria-label="Número para chamada">
+
+                        <button
+                            id="btn-dialer-backspace"
+                            class="dialer-backspace-button"
+                            type="button"
+                            aria-label="Apagar último caractere">
+                            Apagar
+                        </button>
+                    </div>
+
+                    <div
+                        id="dial-pad"
+                        class="dial-pad"
+                        aria-label="Teclado numérico">
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="1">
+                            1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="2">
+                            2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="3">
+                            3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="4">
+                            4
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="5">
+                            5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="6">
+                            6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="7">
+                            7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="8">
+                            8
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="9">
+                            9
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="*">
+                            *
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="0">
+                            0
+                        </button>
+
+                        <button
+                            type="button"
+                            class="dial-pad-button"
+                            data-value="#">
+                            #
+                        </button>
+                    </div>
+
+                    <button
+                        id="btn-start-outbound"
+                        class="outbound-call-button"
+                        type="button"
+                        disabled>
+                        Chamar
+                    </button>
+                </div>
+            </section>
+
+            <section
+                class="contact-card"
+                aria-labelledby="contact-title">
+
+                <h3 id="contact-title">
+                    Contato atual
+                </h3>
+
+                <div class="contact-line">
+                    <span class="contact-label">
+                        Contact ID:
+                    </span>
+
+                    <span id="contact-id">
+                        Nenhum contato
+                    </span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="contact-label">
+                        Tipo:
+                    </span>
+
+                    <span id="contact-type">
+                        -
+                    </span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="contact-label">
+                        Estado:
+                    </span>
+
+                    <span id="contact-state">
+                        -
+                    </span>
+                </div>
+
+                <div class="contact-line">
+                    <span class="contact-label">
+                        Direção:
+                    </span>
+
+                    <span id="contact-direction">
+                        -
+                    </span>
+                </div>
+
+                <div class="button-grid">
+                    <button
+                        id="btn-accept"
+                        type="button"
+                        disabled>
+                        Atender
+                    </button>
+
+                    <button
+                        id="btn-reject"
+                        type="button"
+                        disabled>
+                        Rejeitar
+                    </button>
+
+                    <button
+                        id="btn-hold"
+                        type="button"
+                        disabled>
+                        Hold
+                    </button>
+
+                    <button
+                        id="btn-end"
+                        type="button"
+                        disabled>
+                        Encerrar
+                    </button>
+                </div>
+            </section>
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite">
+            </div>
+
+            <div
+                id="event-log"
+                class="event-log"
+                aria-live="polite">
+                Aguardando eventos...
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

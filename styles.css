@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f3f4f6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2937;
+}
+
+.page-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.ccp-column,
+.custom-panel {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ccp-column {
+    padding: 16px;
+}
+
+.custom-panel {
+    width: 380px;
+    padding: 20px;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+#container-div {
+    width: 400px;
+    height: 800px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #4b5563;
+}
+
+.field-value {
+    min-height: 38px;
+    padding: 9px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #f9fafb;
+    word-break: break-word;
+}
+
+select {
+    width: 100%;
+    height: 40px;
+    padding: 7px 10px;
+    border: 1px solid #9ca3af;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+select:disabled {
+    background: #e5e7eb;
+    cursor: not-allowed;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    color: #374151;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-routable {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-not-routable {
+    background: #ffedd5;
+    color: #9a3412;
+}
+
+.status-offline {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.outbound-card,
+.contact-card {
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #f9fafb;
+}
+
+.outbound-card h3,
+.contact-card h3 {
+    margin-top: 0;
+}
+
+.outbound-open-button {
+    width: 100%;
+    background: #2563eb;
+}
+
+.outbound-dialer {
+    margin-top: 12px;
+}
+
+.dialer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.dialer-close-button {
+    min-height: 36px;
+    padding: 7px 12px;
+    background: #6b7280;
+    font-size: 13px;
+}
+
+.dialer-number-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.outbound-number {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 8px 12px;
+    border: 1px solid #9ca3af;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+.outbound-number:focus {
+    border-color: #2563eb;
+    outline: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+.outbound-number:disabled {
+    background: #e5e7eb;
+    cursor: not-allowed;
+}
+
+.dialer-backspace-button {
+    min-height: 46px;
+    padding: 8px 10px;
+    background: #6b7280;
+    font-size: 12px;
+}
+
+.dial-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.dial-pad-button {
+    min-height: 50px;
+    background: #ffffff;
+    border: 1px solid #9ca3af;
+    color: #1f2937;
+    font-size: 18px;
+}
+
+.dial-pad-button:hover:not(:disabled) {
+    background: #e5e7eb;
+}
+
+.outbound-call-button {
+    width: 100%;
+    margin-top: 12px;
+    background: #15803d;
+}
+
+.contact-line {
+    margin-bottom: 9px;
+    font-size: 14px;
+}
+
+.contact-label {
+    font-weight: bold;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+button {
+    min-height: 44px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #9ca3af !important;
+    color: #e5e7eb;
+    cursor: not-allowed;
+}
+
+#btn-accept {
+    background: #15803d;
+}
+
+#btn-reject {
+    background: #b91c1c;
+}
+
+#btn-hold {
+    background: #d97706;
+}
+
+#btn-end {
+    background: #374151;
+}
+
+.message {
+    display: none;
+    margin-top: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.message-success {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.message-error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.message-info {
+    display: block;
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.event-log {
+    height: 180px;
+    margin-top: 16px;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 6px;
+    background: #111827;
+    color: #d1fae5;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .custom-panel {
+        width: 100%;
+    }
+}
